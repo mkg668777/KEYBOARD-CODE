@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .key-box {
+            font-size: 2rem;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .key-code-box {
+            font-size: 3rem;
+            font-weight: bold;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="key-box">
+            <p>You pressed <span id="key-pressed">...</span></p>
+        </div>
+        <div class="key-code-box" id="key-code">-</div>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', (event) => {
+            event.preventDefault();
+            
+            let keyPressed = event.key;
+            let keyCode = event.keyCode;
+            
+            document.getElementById('key-pressed').textContent = keyPressed;
+            document.getElementById('key-code').textContent = keyCode;
+        });
+    </script>
+</body>
+</html>
